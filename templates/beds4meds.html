@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h2>Beds4Meds</h2>
+<form method='POST' action='/hsearch'>
+<table>
+<p>Use this form to submit a search requesr:</p>
+<tr><td>Patient Name:</td><td><input name='name' type='TEXT' width='70'></td></tr>
+<tr><td>Age :</td><td><input name='age' type='TEXT' width='70'></td></tr>
+<tr><td>Contact Number :</td><td><input name='cno' type='TEXT' width='70'></td></tr>
+<tr><td>Gender:</td><td>
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label></td><td>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label></td><td>
+  <input type="radio" id="other" name="gender" value="other">
+  <label for="other">Other</label></td></tr>
+
+<tr><td>Ward No:</td><td><input name='wardno' type='TEXT' width='70'></td></tr>
+
+</table>
+<p>When you're ready,click this button:</p>
+<p><input value='submit' type='SUBMIT'></p>
+</form>
+{% endblock %}
