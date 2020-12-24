@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block head %}
+<link rel="stylesheet" href="static/add.css" >
+{% endblock %}
+{% block body %}
+<div class="bg-image"></div>
+<div class="bg-text" id='d1'>
+<center>
+    <h2>Add Patient Details Here</h2>
+    <p>No. of beds without ventilators : {{bwov}}</p>
+    <p>No. of beds with ventilators : {{bwv}}</p>
+	<form action='/success1' method='POST'>
+		<table>
+			<tr><td>Patient Name:</td><td><input name='name' type='TEXT' width='70'></td></tr>
+            <tr><td>Age :</td><td><input name='age' type='TEXT' width='70'></td></tr>
+            <tr><td>Contact Number :</td><td><input name='cno' type='TEXT' width='70'></td></tr>
+            <tr><td>Ventilator(y/n):</td><td><input name='bt' type='TEXT' width='70'></td></tr>
+            <tr><td>Gender:</td><td>
+               <input type="radio" id="male" name="gender" value="male">
+               <label for="male">Male</label>
+               <input type="radio" id="female" name="gender" value="female">
+               <label for="female">Female</label>
+               <input type="radio" id="other" name="gender" value="other">
+               <label for="other">Other</label></td></tr>
+        </table>
+        <tr><td><input type='submit' name='submit' value='Submit' class="btn btn-outline-light btn-lg"></td></tr >
+	
+	</form>
+</center>
+</div>
+{% endblock %}

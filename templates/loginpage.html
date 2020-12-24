@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="static/login.css" >
+{% endblock %}
+{% block body %}
+<div class="bg-image"></div>
+
+<div class="bg-text" id="b">
+    <h2>Admin Login</h2>
+    <form action='/update' method='POST'>
+    
+    <table>
+    <tr><td>Username:</td><td><input name='uname' type='TEXT'></td></tr>
+    <tr><td>Password:</td><td><input name='psswd' type='password'></td><tr>
+    <tr><td><input type='submit' name='submit' value='Login' class="btn btn-outline-light btn-md" ></td><td id="move">Not a member yet?<a href="/register" id="q" class="btn btn-outline-light btn-md" >Register now!</td></tr >
+    
+    </table>
+</div>
+
+
+
+
+</form>
+ 
+ {% endblock %}

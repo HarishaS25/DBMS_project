@@ -1,25 +1,34 @@
 {% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="static/hf.css" >
+{% endblock %}
 {% block body %}
-
-<h2>Beds4Meds</h2>
-<form method='POST' action='/hsearch'>
+  
+<div id="main">
+  <div id='a'>
+    <div id='b'>
+<h1>Beds4Meds</h1>   
+<form method='POST' action='/hlist'>
 <table>
-<p>Use this form to submit a search requesr:</p>
-<tr><td>Patient Name:</td><td><input name='name' type='TEXT' width='70'></td></tr>
-<tr><td>Age :</td><td><input name='age' type='TEXT' width='70'></td></tr>
-<tr><td>Contact Number :</td><td><input name='cno' type='TEXT' width='70'></td></tr>
+<p>Use this form to submit a search request:</p>
+<tr><td>Patient Name:</td><td><input name='name' type='TEXT' width='50'></td></tr>
+<tr><td>Age :</td><td><input name='age' type='TEXT' width='50'></td></tr>
+<tr><td>Contact Number :</td><td><input name='cno' type='TEXT' width='50'></td></tr>
 <tr><td>Gender:</td><td>
   <input type="radio" id="male" name="gender" value="male">
-  <label for="male">Male</label></td><td>
+  <label for="male">Male</label>
   <input type="radio" id="female" name="gender" value="female">
-  <label for="female">Female</label></td><td>
+  <label for="female">Female</label>
   <input type="radio" id="other" name="gender" value="other">
   <label for="other">Other</label></td></tr>
 
-<tr><td>Ward No:</td><td><input name='wardno' type='TEXT' width='70'></td></tr>
+<tr><td>Ward No:</td><td><input name='wardno' type='TEXT' width='50'></td></tr>
 
 </table>
 <p>When you're ready,click this button:</p>
-<p><input value='submit' type='SUBMIT'></p>
+<p><input value='Submit' type='SUBMIT' class="btn btn-outline-dark btn-md"></p>
 </form>
+ </div>
+  </div>
+</div>
 {% endblock %}

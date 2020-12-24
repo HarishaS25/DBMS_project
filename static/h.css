@@ -1,0 +1,34 @@
+html { 
+    background: url(covid199.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  #a{
+      background: transparent ;
+      margin-top: 13em;
+      
+  }
+h3,h1,h4{
+    color: white;
+}
+body{
+    background: transparent !important;
+}
+#nav-bar{
+    background-color: rgb(52, 58, 64,.8) !important;
+}
+.btn{
+    margin-top: 20px;
+}
+#btn1{
+    position: relative;
+    right: 10px;
+
+}
+#btn2{
+    position: relative;
+    left: 15px;
+
+}

@@ -1,0 +1,35 @@
+html { 
+    background: url(bg3.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+  }
+#a{
+      background: transparent ;
+      width: 60%;
+      object-position: center;
+      margin: auto;
+      background-color: rgba(0,0,0, 0.6);
+}
+h4,h3{
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 5px;
+    text-decoration: underline dashed white;
+}
+body{
+    background: transparent !important;
+}
+#aa{
+    color: white !important; 
+    list-style-type: none;
+    font-size: larger;
+}
+#b{
+    padding-top: 2em;
+    color: white;
+    padding-top: 1em;
+    text-decoration: underline dotted white;
+}
