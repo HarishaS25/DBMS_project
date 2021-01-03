@@ -5,14 +5,8 @@
 {% block body %}
 <div class="bg-image"></div>
 <div class="bg-text" id='d1'>
-<h3>Entered Details are:</h3>
-<p>Name:{{the_name}}</p>
-<p>Age:{{the_age}}</p>
-<p>Gender:{{the_gender}}</p>
-<p>Ward no:{{the_wardno}}</p>
-<p>Contact No:{{the_contno}}</p>
+<h1>Hospitals In or Near your ward</h1>
 <p id="s"> {{the_message}}</p>
-
 <table id="scroll">
        <tr>
             {%for row_title in row_titles%}
@@ -29,10 +23,9 @@
 {%endfor %}
 </table>
 <form method='POST' action='/confirm'>
-<table>
-<tr><td>Please Enter Hospital Id:</td><td><input name='hid' type='text' width=20></td></tr>
-</table>
-<tr><td><input type='submit' name='submit' value='Submit' class="btn btn-outline-light btn-lg"></td></tr >
+<p>Please Enter Hospital Id:<input name='hid' type='text' width=20></p>
+
+<input type='submit' name='submit' value='Submit' class="btn btn-outline-light btn-lg">
 </form>
 </div>
 

@@ -41,6 +41,7 @@ body, html {
     width: 80%;
     padding: 20px;
     text-align: center;
+align="center";
   }
 #d1{
     margin-top: 30px;
@@ -53,21 +54,45 @@ body, html {
       padding-top: .1em;
 
   }
+
+h1{
+color:#FF7F50;
+}
   
   table {
+    border-collapse:collapse;
+margin:25px 0;
     font-weight: normal;
-    font-size: 1.2em;
+    font-size: 0.9em;
     position: relative;
     left: 10em;
+    min-width:400px;
+    border-radius:5px 5px 0 0;
+    overflow:hidden;
 
   }
+th{
+   padding:12px 15px;
+   background-color:#FF7F50;
+   color:#ffffff;
+   text-align:left;
+   font-weight:bold;
+}
 
-  td, th {
-    padding-bottom: 5px;
-    padding-top: 7px;
-    text-align: right;
+
+  td {
+    padding:12px 15px;
+    text-align: left;
   
     }
+tr{
+border-bottom: 1px solid #FF7F50;
+}
+
+tr:nth-of-type(even){
+color:#FF7F50;
+
+{
     
 input[type=submit] {
   float: right;

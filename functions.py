@@ -152,13 +152,13 @@ def increment_bed_count(btype,hid):
 
 def view_patients(hid):
     c=list()
-    _sql="""select * from patient_list where hospital_id=%s and status='a';"""
+    _sql="""select patient_no,patient_name,gender,contact_no,age,ventilator,admit_date from patient_list where hospital_id=%s and status='a';"""
     with UseDataBase(dbconn) as cursor:
         cursor.execute(_sql,(hid,))
         contents=cursor.fetchall()
     for i in contents:
         i=list(i)
-        i[7]=i[7].strftime("%d-%m-%Y")
+        i[6]=i[6].strftime("%d-%m-%Y")
         c.append(i)
     return c
 

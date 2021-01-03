@@ -25,7 +25,10 @@ def home():
 
 @app.route("/login",methods=['GET','POST'])
 def login():
-    return render_template('loginpage.html')
+    if "user" in session:
+        return redirect('/admin')
+    else:
+        return render_template('loginpage.html')
 
 @app.route("/register",methods=['GET','POST'])
 def register():
@@ -115,7 +118,7 @@ def view():
         if len(content)==0:
             return "no patients"
         else:
-            l=['patient_no','patient_name','gender','hospital_id','contact_no','age','ventilator','admit_date','status']
+            l=['patient_no','patient_name','gender','contact_no','age','ventilator','admit_date']
             return render_template('view_patient.html',row_titles=l,the_data=content)
     else:
         return redirect('/login')
@@ -155,7 +158,7 @@ def dropsession():
 
 @app.route("/hlist",methods=['POST'])
 def hsearch():
-    l=('hospital_id','ward_no','hospital_name','no of beds','cost_per_day')
+    l=('hospital_id','ward_no','hospital_name','no_of_beds','cost_per_day')
     message="Hurray! There are hospitals in your ward or in nearby wards."
     message1="we recommend hospital with vetilator considering your age."
     ldetail.clear()

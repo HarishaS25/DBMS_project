@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block head %}
-
+<link rel="stylesheet" href="static/search.css" >
 {% endblock %}
 {% block body %}
 
 <div class="bg-image"></div>
 <div class="bg-text" id='d1'>
-<table id="scroll">
+<h1>Patient list</h1>
+<table id="scroll" >
        <tr>
             {%for row_title in row_titles%}
             <th>{{row_title}}</th>
@@ -21,10 +22,9 @@
 </tr>
 {%endfor %}
 </table>
-<table id="s">
 <form method='POST' action='/discharge'>
-<tr><td>Please enter the patient id of whom you want to discharge:</td><td><input name='pid' type='text' width=20></td></tr>
-</table>
-<tr><td><input type='submit' name='submit' value='Submit' class="btn btn-outline-light btn-lg"></td></tr >
+<p>Enter the patient id of whom you want to discharge:<input name='pid' type='text' width=20></p>
+
+<input type='submit' name='submit' value='Submit' class="btn btn-outline-light btn-lg">
 </form>
 {% endblock %}
