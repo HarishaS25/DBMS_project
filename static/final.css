@@ -62,7 +62,7 @@ color:#FF7F50;
   
   table {
     border-collapse:collapse;
-    margin:25px 0;
+    margin:15px 100px;
     font-weight: normal;
     font-size: 0.9em;
     position: relative;
@@ -74,10 +74,13 @@ color:#FF7F50;
   }
 th{
    padding:12px 15px;
-   background-color:#FF7F50;
-   color:#ffffff;
    text-align:left;
    font-weight:bold;
+   color:#FF7F50;
+}
+
+td:nth-of-type(odd){
+color:#FF7F50;
 }
 
 
@@ -86,13 +89,11 @@ th{
     text-align: left;
   
     }
+
 tr{
 border-bottom: 1px solid #FF7F50;
 }
 
-tr:nth-of-type(even){
-color:#FF7F50;
-}
     
 input[type=submit] {
   float: right;

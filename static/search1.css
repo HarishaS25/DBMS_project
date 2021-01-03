@@ -62,7 +62,7 @@ color:#FF7F50;
   
   table {
     border-collapse:collapse;
-    margin:25px 0;
+    margin:25px -40px;
     font-weight: normal;
     font-size: 0.9em;
     position: relative;
