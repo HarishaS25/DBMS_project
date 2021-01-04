@@ -58,7 +58,8 @@ def success():
 
     #checking if total no of beds is zero
     if int(hnowov)==0 and int(hnowv)==0:
-        return redirect('/register')
+        flash("no of beds cant be zero")
+        return redirect('/login')
     #if not zero then add hospitalinto database
     functions.add_new_hospital((hwardno,hcno,hid,hname,haddr,ambsrv))
     functions.encrypt_password(hid,hpasswd)
@@ -80,6 +81,7 @@ def update():
         flash("login successful")
         return redirect('/admin')
     else:
+        flash("wrong password/userid")
         return redirect('/login')
 
 @app.route('/admin',methods=['POST','GET'])

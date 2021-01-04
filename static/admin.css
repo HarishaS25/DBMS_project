@@ -65,7 +65,7 @@ h2{
 
 #x{
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: #FF7F50;
+  background-color:#FF7F50;
   color: white;
   font-weight: bold;
   position: absolute;

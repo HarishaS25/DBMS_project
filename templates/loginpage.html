@@ -1,11 +1,10 @@
-
 {% extends 'base.html' %}
 {% block head %}
 <link rel="stylesheet" href="static/login.css" >
 {% endblock %}
 {% block body %}
 <div class="bg-image"></div>
-<div class="bg-text" id="b">
+
    {% with messages = get_flashed_messages() %}
    {% if messages %}
    {% for msg in messages %}
@@ -16,6 +15,7 @@
    {% endfor%}
    {% endif %}
    {% endwith %}
+<div class="bg-text" id="b">
     <h2>Admin Login</h2>
     <form action='/update' method='POST'>
     
