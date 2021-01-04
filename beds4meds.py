@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,g,session,redirect
+from flask import Flask,render_template,request,g,session,redirect,flash
 from datetime import timedelta
 import functions
 import os
@@ -26,6 +26,7 @@ def home():
 @app.route("/login",methods=['GET','POST'])
 def login():
     if "user" in session:
+        flash("Already Logged in")
         return redirect('/admin')
     else:
         return render_template('loginpage.html')
@@ -64,7 +65,8 @@ def success():
     functions.add_bed_without_v((hid,hnowov,hcowov))
     functions.add_bed_with_v((hid,hnowv,hcowv))
     
-    return "success"
+    flash("hospital registered")
+    return redirect('/login')
 
 @app.route("/update",methods=['POST','GET'])
 def update():
@@ -75,6 +77,7 @@ def update():
         return redirect('/login')
     if functions.decrypt_password(int(request.form['uname']),request.form['psswd']):
         session['user']=request.form['uname']
+        flash("login successful")
         return redirect('/admin')
     else:
         return redirect('/login')
@@ -106,9 +109,11 @@ def upddate_db():
         if functions.check_bed_availability(request.form['bt'],user):
             functions.update_database(request.form['bt'],request.form['name'],request.form['gender'],request.form['cno'],request.form['age'],user)
             functions.decrement_bed_count(request.form['bt'],user)
-            return "success"
+            flash("Patient was admitted successfully")
+            return redirect('/admin')
         else:
-            return "no bed availability"
+            flash("No bed is available")
+            return redirect('/admin')
 
 @app.route('/view_patient')
 def view():
@@ -116,7 +121,8 @@ def view():
         user=session["user"]
         content=functions.view_patients(user)
         if len(content)==0:
-            return "no patients"
+            flash("No patients")
+            return redirect('/admin')
         else:
             l=['patient_no','patient_name','gender','contact_no','age','ventilator','admit_date']
             return render_template('view_patient.html',row_titles=l,the_data=content)
@@ -134,7 +140,8 @@ def discharge():
             return redirect('/view_patient')
         content=functions.discharge_patient(request.form['pid'])
         functions.increment_bed_count(content[0][0],user)
-        return "success"
+        flash("Patient was discharged successfully")
+        return redirect('/admin')
         
     else:
         return redirect('/login')
@@ -152,8 +159,10 @@ def before_request():
 
 @app.route('/dropsession')
 def dropsession():
+    if "user" in session:
+        flash("You were logged out successfully")
     session.pop('user',None)
-    return redirect('/')
+    return redirect('/login')
 
 
 @app.route("/hlist",methods=['POST'])

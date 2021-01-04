@@ -5,8 +5,17 @@
 {% endblock %}
 {% block body %}
 <div class="bg-image"></div>
-
 <div class="bg-text" id="b">
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   {% for msg in messages %}
+   <div class="alert" id="x">
+   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+   <h6>{{msg}}</h6>
+   </div>
+   {% endfor%}
+   {% endif %}
+   {% endwith %}
     <h2>Admin Login</h2>
     <form action='/update' method='POST'>
     

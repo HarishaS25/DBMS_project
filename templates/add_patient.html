@@ -1,10 +1,17 @@
-{% extends 'base.html'%}
+{% extends 'base1.html'%}
 {% block head %}
 <link rel="stylesheet" href="static/add.css" >
 {% endblock %}
 {% block body %}
 <div class="bg-image"></div>
 <div class="bg-text" id='d1'>
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   {% for msg in messages %}
+   <h6>{{msg}}</h6>
+   {% endfor%}
+   {% endif %}
+   {% endwith %}
 <center>
     <h2>Add Patient Details Here</h2>
     <p>No. of beds without ventilators : {{bwov}}</p>

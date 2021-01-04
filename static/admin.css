@@ -1,6 +1,6 @@
 body, html {
     height: 100%;
-    overflow: hidden; /* Hide scrollbars */
+    overflow: auto; /* Hide scrollbars */
   }
   
   * {
@@ -61,4 +61,38 @@ body, html {
 
 h2{
   text-decoration: underline dotted white;
+}
+
+#x{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: #FF7F50;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  padding: 5px;
+  text-align: center;
+}
+
+.alert{
+  padding: 15px;
+  background-color: #FF7F50;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
 }
