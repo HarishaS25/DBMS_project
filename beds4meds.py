@@ -140,10 +140,13 @@ def discharge():
             functions.check_data_from_form(req)
         except Exception:
             return redirect('/view_patient')
-        content=functions.discharge_patient(request.form['pid'])
-        functions.increment_bed_count(content[0][0],user)
-        flash("Patient was discharged successfully")
-        return redirect('/admin')
+        if functions.check_patient(request.form['pid'],user):
+            content=functions.discharge_patient(request.form['pid'])
+            flash("Patient was discharged successfully")
+            return redirect('/admin')
+        else:
+            flash("enter correct patient id")
+            return redirect('/admin')
         
     else:
         return redirect('/login')
@@ -179,13 +182,12 @@ def hsearch():
     except Exception:
         return redirect('/hsearch')
     pname=request.form['name']
-    Age=request.form['age']
+    Age=int(request.form['age'])
     cno=request.form['cno']
     wardno=request.form['wardno']                            #taking all details filled in form
     gender=request.form.getlist('gender')
     ge =gender[0]
     ldetail.extend([pname,Age,cno,wardno,ge])
-    
     contents=functions.search_hospital_in_ward_without_v(int(wardno))
     contents1=functions.search_hospital_in_ward_with_v(int(wardno))
     if len(contents)==0:                                                   #checking if hospital is present or not
@@ -199,11 +201,16 @@ def hsearch():
             return render_template('hsearch_in_ward.html',the_name=pname,the_age=Age,the_wardno=wardno,the_gender=ge,the_contno=cno,row_titles=l,the_data=contents1,the_message=message1)
             
 
-@app.route('/confirm',methods=['POST'])
+@app.route('/confirm',methods=['GET','POST'])
 def confirm():
     contents=functions.hospital_details(request.form['hid'])
-    
-    return render_template('final.html',the_name=contents[0][3],the_id=contents[0][2],the_cno=contents[0][1],the_wno=contents[0][0],the_addr=contents[0][4],the_ambs=contents[0][5])
+    cost_without_v=functions.avg_cost_without_v(request.form['hid'])
+    cost_with_v=functions.avg_cost_with_v(request.form['hid'])
+    if cost_with_v!=0:
+        cost=cost_with_v
+    else:
+        cost=cost_without_v
+    return render_template('final.html',the_name=contents[0][3],the_id=contents[0][2],the_cno=contents[0][1],the_wno=contents[0][0],the_addr=contents[0][4],the_ambs=contents[0][5],the_cost=cost)
     
 if __name__=="__main__":
     app.run(debug=True)

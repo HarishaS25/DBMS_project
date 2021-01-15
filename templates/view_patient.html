@@ -29,7 +29,7 @@
 {%endfor %}
 </table>
 <form method='POST' action='/discharge'>
-<p>Enter the patient id of whom you want to discharge:<input name='pid' type='text' width=20></p>
+<p>Enter the patient id of whom you want to discharge:<input name='pid' type='text' width=20 pattern="[1-9]([0-9]{1,2})?"></p>
 
 <input type='submit' name='submit' value='Submit' class="btn btn-outline-light btn-lg">
 </form>

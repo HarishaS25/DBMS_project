@@ -179,8 +179,26 @@ def hospital_details(hid):
         contents=cursor.fetchall()
     return contents
 
-content=hospital_details(1001)
-print(content[0][5])
+def avg_cost_without_v(hid):
+    _sql="""select avg_cost(hospital_id) from hospital_without_v where hospital_id=%s;"""
+    with UseDataBase(dbconn)as cursor:
+        cursor.execute(_sql,(hid,))
+        content=cursor.fetchall()
+    return content[0][0]
+
+def avg_cost_with_v(hid):
+    _sql="""select avg_cost_with_v(hospital_id) from hospital_with_v where hospital_id=%s;"""
+    with UseDataBase(dbconn) as cursor:
+        cursor.execute(_sql,(hid,))
+        content=cursor.fetchall()
+    return content[0][0]
+
+def check_patient(pid,hid):
+    _sql="""select count(*) from patient_list where patient_no=%s and hospital_id=%s and status='a';"""
+    with UseDataBase (dbconn) as cursor:
+        cursor.execute(_sql,(pid,hid))
+        content=cursor.fetchall()
+    return content[0][0]
 
 
 

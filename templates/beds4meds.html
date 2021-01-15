@@ -12,8 +12,8 @@
 <table>
 <p>Use this form to submit a search request:</p>
 <tr><td>Patient Name:</td><td><input name='name' type='TEXT' width='50'></td></tr>
-<tr><td>Age :</td><td><input name='age' type='TEXT' width='50'></td></tr>
-<tr><td>Contact Number :</td><td><input name='cno' type='TEXT' width='50'></td></tr>
+<tr><td>Age :</td><td><input name='age' type='TEXT' width='50' pattern="[1-9]([0-9]{1,2})?"></td></tr>
+<tr><td>Contact Number :</td><td><input name='cno' type='TEXT' width='50' pattern="[1-9][0-9]{9}"></td></tr>
 <tr><td>Gender:</td><td>
   <input type="radio" id="male" name="gender" value="male">
   <label for="male">Male</label>
@@ -22,7 +22,7 @@
   <input type="radio" id="other" name="gender" value="other">
   <label for="other">Other</label></td></tr>
 
-<tr><td>Ward No:</td><td><input name='wardno' type='TEXT' width='50'></td></tr>
+<tr><td>Ward No:</td><td><input name='wardno' type='TEXT' width='50' pattern="[1-8]" placeholder="value between 1 and 8"></td></tr>
 
 </table>
 <p>When you're ready,click this button:</p>
