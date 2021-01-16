@@ -14,13 +14,13 @@
         <!-- <tr><td>Enter a Password :</td><td><input name='passwd' type='password'></td></tr> -->
         <tr><td>Hospital Name :</td><td><input name='hname' type='text'></td><td>Hospital Id :</td><td><input name='hid' type='text'></tr>
         <!-- <tr><td>Enter the Hospital Id :</td><td><input name='hid' type='text'></td></tr> -->
-        <tr><td>Contact No :</td><td><input name='cno' type='text'></td><td>Ward No. :</td><td><input name='wno' type='text'></td></tr>
+        <tr><td>Contact No :</td><td><input name='cno' type='text' pattern="[1-9][0-9]{9}"></td><td>Ward No. :</td><td><input name='wno' type='text' pattern="[1-8]" placeholder="value between 1 and 8"></td></tr>
         <!-- <tr><td>Ward No. :</td><td><input name='wno' type='text'></td></tr> -->
-        <tr><td>No. of beds without ventilator : </td><td><input name='bno_wo_v' type='text'></td><td> Normal bed Cost per day : </td><td><input name='cpd_wo_v' type='text'></td></tr>
+        <tr><td>No. of beds without ventilator : </td><td><input name='bno_wo_v' type='text'></td><td> Normal bed Cost per day : </td><td><input name='cpd_wo_v' type='text' placeholder="enter 0 if no of beds is 0"></td></tr>
         <!-- <tr><td> Normal bed Cost per day : </td><td><input name='cpd_wo_v' type='text'></td></tr> -->
-        <tr><td>No. of beds with ventilator : </td><td><input name='bno_w_v' type='text'></td><td> Special bed Cost per day : </td><td><input name='cpd_w_v' type='text'></td></tr>
+        <tr><td>No. of beds with ventilator : </td><td><input name='bno_w_v' type='text'></td><td> Special bed Cost per day : </td><td><input name='cpd_w_v' type='text' placeholder="enter 0 if no of beds is 0"></td></tr>
         <!-- <tr><td> Special bed Cost per day : </td><td><input name='cpd_w_v' type='text'></td></tr> -->
-        <tr><td> Ambulance Service : </td><td><input name='amb_srv' type='text'></td><td> Hospital Address : </td><td><input name='haddr' type='text'></td></tr>
+        <tr><td> Ambulance Service : </td><td><input name='amb_srv' type='text' pattern="yes|no" placeholder="enter yes or no"></td><td> Hospital Address : </td><td><input name='haddr' type='text'></td></tr>
         <tr><td><input type='submit' name='submit' value='Submit' class="btn btn-outline-light btn-lg"></td></tr >
         
         
