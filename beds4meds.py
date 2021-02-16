@@ -76,6 +76,9 @@ def update():
         functions.check_data_from_form(req)
     except Exception:
         return redirect('/login')
+    if functions.check_hospital_id(int(request.form['uname']))==0:
+        flash("invalid user id")
+        return redirect('/admin')
     if functions.decrypt_password(int(request.form['uname']),request.form['psswd']):
         session['user']=request.form['uname']
         flash("login successful")

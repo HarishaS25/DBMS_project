@@ -200,6 +200,14 @@ def check_patient(pid,hid):
         content=cursor.fetchall()
     return content[0][0]
 
+def check_hospital_id(hid):
+    _sql="""select count(*) from users where user_id=%s"""
+    with UseDataBase(dbconn) as cursor:
+        cursor.execute(_sql,(hid,))
+        content=cursor.fetchall()
+        return content[0][0]
+
+
 
 
       
