@@ -207,6 +207,8 @@ def hsearch():
 @app.route('/confirm',methods=['GET','POST'])
 def confirm():
     contents=functions.hospital_details(request.form['hid'])
+    if functions.check_hospital_id(request.form['hid'])==0:
+        return redirect('/hsearch')
     cost_without_v=functions.avg_cost_without_v(request.form['hid'])
     cost_with_v=functions.avg_cost_with_v(request.form['hid'])
     if cost_with_v!=0:
